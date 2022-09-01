@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base</title>
+    <link rel="stylesheet"
+                  href="{% static 'artidentifier.css' %}" />
+
+</head>
+<body>
+<div class="topbar">
+<h1 style="text-align:center;">
+    Art Identifier
+</h1>
+</div>
+ <div class="topnav">
+  <a href="{% url 'uploadpic:index' %}">About</a>
+  <a href="{% url 'uploadpic:upload_pic' %}">Upload</a>
+  <a href="{% url 'uploadpic:results' %}">Results</a>
+</div>
+</body>
+</html>

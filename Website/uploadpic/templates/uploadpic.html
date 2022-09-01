@@ -1,0 +1,32 @@
+{% include 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Test Your Work</title>
+</head>
+<body>
+    <div class="container">
+  <img class="container__image" style="border-radius: 5%; border: 2px solid #7a0000;" src="https://api-www.louvre.fr/sites/default/files/2021-03/en-tete-a-tete-avec-la-joconde-appli-vr.jpg"/>
+  <div class="container__text">
+      <h2 class="sideline">
+    <span>Upload your Drawing</span>
+    </h2>
+      <p>Please, upload a drawing and provide an appropriate, unique name for it.
+When you are done, press "Upload File" and you will be redirected to the "Results" page.</p>
+
+    <form method="POST" enctype="multipart/form-data" action={% url 'uploadpic:results' %}>
+        {% csrf_token %}
+      <p><div class="frm-lbl"> {{ form.name.errors }} <label for="{{ form.name.id_for_label }}">Name: </label> {{ form.name }} </div></p>
+       <p><div> <div class="frm-lbl"> {{ form.img.errors }} <label for="{{ form.img.id_for_label }}">Image: </label> </div>{{ form.img }} </div></p>
+        <input class="frm-btn" type="submit" value="Upload File" name="submit" />
+    </form>
+
+
+    </div>
+    </div>
+{% include 'footer.html' %}
+</body>
+</html>
